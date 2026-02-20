@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InstaClick Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-content">
+        <div class="logo">
+          <img class="logo-icon" id="header-logo" alt="InstaClick">
+          <h1>InstaClick</h1>
+        </div>
+        <span class="version">v2.4.7</span>
+      </div>
+      <p class="tagline">Clickable links for Instagram</p>
+    </header>
+
+    <!-- Main Toggle -->
+    <section class="section main-toggle">
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-label">Extension Enabled</span>
+          <span class="toggle-desc">Turn link detection on/off</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="enabled" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Settings Tabs -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="settings">Settings</button>
+      <button class="tab" data-tab="history">History</button>
+      <button class="tab" data-tab="about">About</button>
+    </nav>
+
+    <!-- Settings Panel -->
+    <section class="panel active" id="panel-settings">
+      <div class="setting-group">
+        <h3 class="group-title">Link Behavior</h3>
+        
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Open in new tab</span>
+            <span class="setting-desc">Links open in a new browser tab</span>
+          </div>
+          <label class="switch small">
+            <input type="checkbox" id="openInNewTab" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Show link preview</span>
+            <span class="setting-desc">Display preview card on hover</span>
+          </div>
+          <label class="switch small">
+            <input type="checkbox" id="showPreview" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- History Panel -->
+    <section class="panel" id="panel-history">
+      <div class="history-toggle-section">
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Track click history</span>
+            <span class="setting-desc">Store visited links locally</span>
+          </div>
+          <label class="switch small">
+            <input type="checkbox" id="trackHistory" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="history-header">
+        <h3>Click History</h3>
+        <button class="btn-text" id="clearHistory">Clear All</button>
+      </div>
+      
+      <div class="history-stats" id="historyStats">
+        <div class="stat">
+          <span class="stat-value" id="totalClicks">0</span>
+          <span class="stat-label">Total Clicks</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="uniqueDomains">0</span>
+          <span class="stat-label">Unique Sites</span>
+        </div>
+      </div>
+      
+      <div class="history-list" id="historyList">
+        <p class="history-empty">No history yet. Click on links to start recording.</p>
+      </div>
+    </section>
+
+    <!-- About Panel -->
+    <section class="panel" id="panel-about">
+      <div class="about-content">
+        <div class="about-hero">
+          <div class="about-hero-glow"></div>
+          <img class="about-logo-img" id="about-logo" alt="InstaClick">
+          <h2 class="about-title">InstaClick</h2>
+          <span class="about-version-badge">v2.4.7</span>
+        </div>
+
+        <p class="about-desc">
+          Converts plain text URLs in Instagram posts, comments, bios, and reels into clickable links.
+        </p>
+
+        <div class="about-features">
+          <div class="about-feature-chip">
+            <span class="chip-icon">🎯</span> Smart detection
+          </div>
+          <div class="about-feature-chip">
+            <span class="chip-icon">🖼️</span> Rich previews
+          </div>
+          <div class="about-feature-chip">
+            <span class="chip-icon">🚫</span> Dead link alerts
+          </div>
+          <div class="about-feature-chip">
+            <span class="chip-icon">🌙</span> Dark mode
+          </div>
+          <div class="about-feature-chip">
+            <span class="chip-icon">📊</span> Click history
+          </div>
+        </div>
+
+        <div class="hover-features-box">
+          <div class="hover-features-title">Hover Card Tools</div>
+          <div class="hover-feature-row">
+            <span class="hover-feature-icon">📱</span>
+            <div>
+              <strong>QR Code</strong>
+              <span class="hover-feature-desc">Open link on your phone</span>
+            </div>
+          </div>
+          <div class="hover-feature-row">
+            <span class="hover-feature-icon">🔓</span>
+            <div>
+              <strong>Expand URL</strong>
+              <span class="hover-feature-desc">Reveal short link destinations</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-platform">
+          <span class="platform-dot"></span>
+          Works on instagram.com
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <a href="https://sourcelogs.com/tools" target="_blank" class="footer-link">
+        built by sourcelogs.com
+      </a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "InstaClick - Clickable Links for Instagram",
+  "version": "2.4.7",
+  "description": "Automatically converts plain text URLs in Instagram posts, comments, bios, and reels into clickable links",
+  "author": "sourcelogs.com",
+  "homepage_url": "https://chromewebstore.google.com/detail/copomchmemoonadcchpjcpkdplafmibj?utm_source=item-share-cb",
+  
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://instagram.com/*"
+  ],
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*",
+        "https://instagram.com/*"
+      ],
+      "js": ["src/preview.js", "src/content.js"],
+      "css": ["src/styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/icon16.png"],
+      "matches": ["https://www.instagram.com/*", "https://instagram.com/*"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

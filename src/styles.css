@@ -1,0 +1,671 @@
+/**
+ * InstaClick v2.2 - Styles
+ * WhatsApp-style previews, dead link indicators, and branding
+ */
+
+/* ============================================
+   BASE LINK STYLES
+   ============================================ */
+
+.instaclick-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.3em !important;
+  vertical-align: middle !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  transition: color 0.15s ease, text-decoration 0.15s ease !important;
+  font-weight: inherit !important;
+  text-decoration: none !important;
+  word-break: break-all !important;
+}
+
+.instaclick-favicon {
+  width: 1em !important;
+  height: 1em !important;
+  object-fit: contain !important;
+  border-radius: 2px !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+}
+
+.instaclick-link:focus {
+  outline: 2px solid #0095f6 !important;
+  outline-offset: 2px !important;
+  border-radius: 2px !important;
+}
+
+/* ============================================
+   LINK STYLE VARIATIONS
+   ============================================ */
+
+/* Default Style - Instagram Blue */
+.instaclick-style-default {
+  color: #00376b !important;
+}
+
+.instaclick-style-default:hover {
+  color: #0095f6 !important;
+  text-decoration: underline !important;
+}
+
+.instaclick-style-default:visited {
+  color: #7a3db8 !important;
+}
+
+/* Subtle Style - Underline only on hover */
+.instaclick-style-subtle {
+  color: inherit !important;
+  text-decoration: underline !important;
+  text-decoration-style: dotted !important;
+  text-underline-offset: 2px !important;
+}
+
+.instaclick-style-subtle:hover {
+  color: #0095f6 !important;
+  text-decoration-style: solid !important;
+}
+
+/* Bold Style - More prominent */
+.instaclick-style-bold {
+  color: #0095f6 !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+.instaclick-style-bold:hover {
+  color: #00d4ff !important;
+  text-shadow: 0 0 1px rgba(0, 149, 246, 0.3) !important;
+}
+
+/* ============================================
+   DEAD LINK STYLES (404)
+   ============================================ */
+
+.instaclick-dead-link {
+  color: #dc2626 !important;
+  text-decoration: line-through !important;
+  opacity: 0.7 !important;
+}
+
+.instaclick-dead-link:hover {
+  color: #b91c1c !important;
+  opacity: 1 !important;
+}
+
+.instaclick-dead-link::after {
+  content: ' ⚠️' !important;
+  font-size: 0.8em !important;
+  text-decoration: none !important;
+}
+
+/* ============================================
+   DARK MODE - System Preference
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .instaclick-style-default {
+    color: #58b6ff !important;
+  }
+  
+  .instaclick-style-default:hover {
+    color: #79c7ff !important;
+  }
+  
+  .instaclick-style-default:visited {
+    color: #b19cd9 !important;
+  }
+  
+  .instaclick-style-subtle {
+    text-decoration-color: rgba(255, 255, 255, 0.4) !important;
+  }
+  
+  .instaclick-style-subtle:hover {
+    color: #58b6ff !important;
+  }
+  
+  .instaclick-style-bold {
+    color: #58b6ff !important;
+  }
+  
+  .instaclick-style-bold:hover {
+    color: #79c7ff !important;
+    text-shadow: 0 0 2px rgba(88, 182, 255, 0.4) !important;
+  }
+  
+  .instaclick-dead-link {
+    color: #f87171 !important;
+  }
+}
+
+/* ============================================
+   DARK MODE - Instagram Theme Classes
+   ============================================ */
+
+.__fb-dark-mode .instaclick-style-default,
+html.__fb-dark-mode .instaclick-style-default,
+body.__fb-dark-mode .instaclick-style-default,
+[data-theme="dark"] .instaclick-style-default {
+  color: #58b6ff !important;
+}
+
+.__fb-dark-mode .instaclick-style-default:hover,
+html.__fb-dark-mode .instaclick-style-default:hover,
+body.__fb-dark-mode .instaclick-style-default:hover,
+[data-theme="dark"] .instaclick-style-default:hover {
+  color: #79c7ff !important;
+}
+
+.__fb-dark-mode .instaclick-style-default:visited,
+html.__fb-dark-mode .instaclick-style-default:visited,
+body.__fb-dark-mode .instaclick-style-default:visited,
+[data-theme="dark"] .instaclick-style-default:visited {
+  color: #b19cd9 !important;
+}
+
+/* ============================================
+   MODAL/POPUP SPECIFIC STYLES
+   ============================================ */
+
+div[role="dialog"] .instaclick-link,
+div[role="presentation"] .instaclick-link {
+  color: #58b6ff !important;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5) !important;
+}
+
+div[role="dialog"] .instaclick-link:hover,
+div[role="presentation"] .instaclick-link:hover {
+  color: #79c7ff !important;
+  text-decoration: underline !important;
+}
+
+/* Reels and stories (dark backgrounds) */
+div[style*="background-color: rgb(0, 0, 0)"] .instaclick-link,
+div[style*="background: rgb(0, 0, 0)"] .instaclick-link,
+div[style*="background-color: black"] .instaclick-link {
+  color: #79c7ff !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* ============================================
+   WHATSAPP-STYLE PREVIEW CARD
+   ============================================ */
+
+.instaclick-preview-card {
+  position: absolute;
+  z-index: 999999;
+  width: 320px;
+  background: #1a3a2f;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.96);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.instaclick-preview-card.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.instaclick-preview-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Link Area - Makes right-click and middle-click work properly */
+.preview-link-area {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.preview-link-area:hover {
+  text-decoration: none;
+}
+
+.preview-link-area:focus {
+  outline: none;
+}
+
+/* Loading State */
+.preview-loading {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.preview-skeleton-image {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(90deg, #1f4d3d 25%, #2a5c4a 50%, #1f4d3d 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.preview-skeleton-content {
+  padding: 12px 14px;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1f4d3d 25%, #2a5c4a 50%, #1f4d3d 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  width: 85%;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.skeleton-domain {
+  width: 50%;
+  height: 12px;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Preview Content */
+.preview-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-image-container {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #0f2620;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.preview-site-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+.preview-site-badge.badge-youtube {
+  background: #ff0000;
+}
+
+.preview-site-badge.badge-twitter {
+  background: #000000;
+}
+
+.preview-site-badge.badge-github {
+  background: #24292e;
+}
+
+.preview-site-badge.badge-reddit {
+  background: #ff4500;
+}
+
+.preview-site-badge.badge-spotify {
+  background: #1db954;
+}
+
+.preview-site-badge.badge-instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.preview-site-badge.badge-tiktok {
+  background: #000000;
+}
+
+.preview-site-badge.badge-linkedin {
+  background: #0077b5;
+}
+
+/* Preview Info */
+.preview-info {
+  padding: 12px 14px;
+  background: #1a3a2f;
+}
+
+.preview-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e9f5f0;
+  line-height: 1.35;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.preview-domain-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-favicon {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  object-fit: contain;
+}
+
+.preview-domain {
+  font-size: 12px;
+  color: #8eb8a8;
+}
+
+/* Branding - More Prominent */
+.preview-branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #1a3a2f 0%, #0f2620 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.preview-branding-icon {
+  font-size: 14px;
+}
+
+.preview-branding-text {
+  font-size: 11px;
+  color: #8eb8a8;
+  letter-spacing: 0.3px;
+}
+
+.preview-branding-text strong {
+  color: #a8d4c4;
+  font-weight: 600;
+}
+
+/* Expanded URL Display */
+.preview-expanded-url {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: rgba(0, 200, 100, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 200, 100, 0.2);
+}
+
+.expanded-label {
+  font-size: 10px;
+  color: #4ade80;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.expanded-url-text {
+  font-size: 11px;
+  color: #86efac;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+/* Actions Row */
+.preview-actions-row {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.preview-action-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #e9f5f0;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+
+.preview-action-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.preview-action-btn:active {
+  transform: translateY(0);
+}
+
+.preview-action-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.preview-expand-btn {
+  background: rgba(74, 222, 128, 0.2);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+.preview-expand-btn:hover {
+  background: rgba(74, 222, 128, 0.3);
+}
+
+.preview-qr-btn {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.preview-qr-btn:hover {
+  background: rgba(139, 92, 246, 0.3);
+}
+
+/* QR Code Popup - Appears beside card */
+.instaclick-qr-popup {
+  position: fixed;
+  z-index: 2147483648;
+  width: 160px;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}
+
+.instaclick-qr-popup.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.qr-popup-image {
+  width: 136px;
+  height: 136px;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Error State */
+.preview-error {
+  display: none;
+  flex-direction: column;
+  background: #3d1f1f;
+}
+
+.preview-error-content {
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.preview-error-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.preview-error-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f5a5a5;
+  margin-bottom: 6px;
+}
+
+.preview-error-desc {
+  font-size: 13px;
+  color: #d88888;
+  margin-bottom: 8px;
+}
+
+.preview-error-url {
+  font-size: 11px;
+  color: #a66666;
+  font-family: monospace;
+}
+
+.preview-branding.error {
+  background: linear-gradient(135deg, #3d1f1f 0%, #2d1515 100%);
+}
+
+.preview-branding.error .preview-branding-text {
+  color: #d88888;
+}
+
+.preview-branding.error .preview-branding-text strong {
+  color: #f5a5a5;
+}
+
+/* ============================================
+   LIGHT MODE PREVIEW (optional override)
+   ============================================ */
+
+/* Uncomment to use light theme preview
+.instaclick-preview-card {
+  background: #ffffff;
+}
+
+.preview-info {
+  background: #ffffff;
+}
+
+.preview-title {
+  color: #262626;
+}
+
+.preview-domain {
+  color: #8e8e8e;
+}
+
+.preview-branding {
+  background: #f5f5f5;
+}
+
+.preview-branding-text {
+  color: #8e8e8e;
+}
+*/
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .instaclick-link {
+    color: LinkText !important;
+    text-decoration: underline !important;
+  }
+  
+  .instaclick-link:hover,
+  .instaclick-link:focus {
+    color: ActiveText !important;
+  }
+  
+  .instaclick-link:visited {
+    color: VisitedText !important;
+  }
+  
+  .instaclick-preview-card {
+    border: 2px solid CanvasText !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .instaclick-link {
+    transition: none !important;
+  }
+  
+  .instaclick-preview-card {
+    transition: opacity 0.1s ease !important;
+    transform: none !important;
+  }
+  
+  .skeleton,
+  .preview-skeleton-image {
+    animation: none !important;
+    background: #1f4d3d !important;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .instaclick-link {
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+  
+  .instaclick-link::after {
+    content: " (" attr(href) ")" !important;
+    font-size: 0.8em !important;
+    color: #666 !important;
+  }
+  
+  .instaclick-preview-card {
+    display: none !important;
+  }
+}
